@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Query Chatbot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input, button {
+            margin: 5px 0;
+            padding: 10px;
+            font-size: 1em;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #d9edf7;
+            border: 1px solid #bce8f1;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>PDF Query Chatbot</h1>
+    <form action="/" method="post" enctype="multipart/form-data">
+        <label for="pdf">Upload PDF:</label>
+        <input type="file" name="pdf" id="pdf" accept="application/pdf" required><br>
+        <label for="query">Enter Query:</label>
+        <input type="text" name="query" id="query" placeholder="Type your question here..." required><br>
+        <button type="submit">Search</button>
+    </form>
+
+    {% if query %}
+    <div class="result">
+        <h3>Search Query: "{{ query }}"</h3>
+        <p>Result: {{ result }}</p>
+    </div>
+    {% endif %}
+</body>
+</html>
